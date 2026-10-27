@@ -4,3 +4,4 @@
 4. polynomial equation problem in stack
 5. 05_BinarySearchTree.c --> not able to understand
 6. DE Queue operations
+7. Circular Linked List Deletion cases
