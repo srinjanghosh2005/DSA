@@ -29,12 +29,6 @@ struct Node *deleteAtEnd(struct Node *head){
 
 }
 
-// case 4: Delete a node with given value(first value)
-struct Node *deletevalue(struct Node *head, int value){
-
-}
-
-
 int main(){
     struct Node *head;
     struct Node *second;
@@ -60,9 +54,12 @@ int main(){
     printf("Linked list before deletion--\n");
     linkedListTraversal(head);
 
-    // case 1: Deletion at beginning
+    // case 1
     // head = deleteFirst(head);
 
+    // case 2
+
+    // case 3
 
     printf("\nLinked list after deletion--\n");
     linkedListTraversal(head);

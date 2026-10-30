@@ -16,7 +16,7 @@ void doubly_linked_list_traversal(struct Node *ptr){
     printf("\n");
 }
 
-// Reverse Traversal
+// Reverse Traversal(can be also done by using tail pointer)
 void reverseTraversal(struct Node *head){
     struct Node *ptr = head;
     while(ptr->next != NULL){
