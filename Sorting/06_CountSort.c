@@ -28,12 +28,10 @@ void countSort(int *arr, int n){
     for(int i = 0; i < max + 1; i ++){
         count[i] = 0;
     }
-
     // Increment the corresponding index in the count array
     for(int i = 0; i < n; i ++){
         count[arr[i]]++;
     }
-
     int i = 0; // Counter for count array
     int j = 0; // Counter for given array
     while(i < max + 1){
