@@ -25,10 +25,10 @@ struct Node *search(struct Node *root, int key){
         return root;
     }
     else if(root->data > key){
-        return search(root->left, 4);
+        return search(root->left, key);
     }
     else{
-        return search(root->right, 4);
+        return search(root->right, key);
     }
 }
 
@@ -51,7 +51,7 @@ int main(){
     ptr1->left = ptr3;
     ptr1->right = ptr4;
 
-    struct Node *n = search(ptr, 5);
+    struct Node *n = search(ptr, 4);
     if(n != NULL){
         printf("Found: %d ", n->data);
     }

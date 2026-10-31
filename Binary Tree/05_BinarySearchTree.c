@@ -17,10 +17,13 @@ struct Node *createNode(int value){
     return n;
 }
 
+// Basically write 'inorder traversal' with modified form 
 int isBST(struct Node *root){
-    static struct Node *prev = NULL;
+    static struct Node *prev = NULL; 
+    // "static" retain the value of the variable in 
+    //a function despite of having function calls in that functions. 
     if(root != NULL){
-        if(! isBST(root->left)){
+        if(!isBST(root->left)){
             return 0;
         }
         if(prev != NULL && root->data <= prev->data){

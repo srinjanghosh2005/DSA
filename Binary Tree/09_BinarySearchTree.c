@@ -17,7 +17,9 @@ struct Node *createNode(int value){
     return n;
 }
 
-
+int delete(struct Node *root){
+    
+}
 
 int main(){
     struct Node *ptr = createNode(5);

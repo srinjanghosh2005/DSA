@@ -43,13 +43,13 @@ void insert(struct Node *root, int key){
         }
     }
     struct Node *new = createNode(key);
+    new->data = key;  
     if(key < prev->data){
         prev->left = new;
     }
     else{
         prev->right = new;
     }
-    new->data = key;  
 }
 
 int main(){
@@ -65,7 +65,7 @@ int main(){
     ptr1->left = ptr3;
     ptr1->right = ptr4;
 
-    insert(ptr, 6);
+    insert(ptr, 8);
     printf("%d", ptr->right->right->data);
 
     return 0;
