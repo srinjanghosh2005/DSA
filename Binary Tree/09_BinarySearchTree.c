@@ -1,5 +1,5 @@
 // Deletion in Binary Search Tree
-
+// Throwing error
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -17,8 +17,48 @@ struct Node *createNode(int value){
     return n;
 }
 
-int delete(struct Node *root){
+// inorder predecessor --> left sub-tree ka right-most child
+struct Node *inorder_predecessor(struct Node *root){
+    root = root->left;
+    while(root != NULL){
+        root = root->right;
+    }
+    return root;
+}
+
+struct Node *deleteNode(struct Node *root, int value){
+    struct Node *inPre;
+    // Base Conditions
+    if(root == NULL){
+        return NULL;
+    }
+    if(root->right == NULL && root->right == NULL){
+        free(root);
+        return NULL;
+    }
     
+    // searching for the node to be deleted
+    if(value < root->data){
+        root->left = deleteNode(root->left, value);
+    }
+    else if(value > root->data){
+        root->right = deleteNode(root->right, value);
+    }
+    // Deletion stratergy when the node is found
+    else{
+        inPre = inorder_predecessor(root);
+        root->data = inPre->data;
+        root->left = deleteNode(root->left, inPre->data);
+    }
+    return root;
+}
+
+void inOrder(struct Node *root){
+    if(root != NULL){
+        inOrder(root->left);
+        printf("%d ", root->data);
+        inOrder(root->right);
+    }
 }
 
 int main(){
@@ -34,8 +74,16 @@ int main(){
     ptr1->left = ptr3;
     ptr1->right = ptr4;
 
-    insert(ptr, 6);
-    printf("%d", ptr->right->right->data);
+    // Tree looks like
+    //      5
+    //     / \
+    //    3   6
+    //   / \
+    //  1   4
+
+    inOrder(ptr);
+    deleteNode(ptr, 3);
+    inOrder(ptr);
 
     return 0;
 }
