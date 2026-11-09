@@ -1,5 +1,4 @@
 // PreOrder Traverasal
-
 #include<stdio.h>
 #include<stdlib.h>
 

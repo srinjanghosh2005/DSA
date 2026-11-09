@@ -1,5 +1,4 @@
 // Linked representation of Binary Tree(Kind of similar to doubly linked list)
-
 #include<stdio.h>
 #include<stdlib.h>
 

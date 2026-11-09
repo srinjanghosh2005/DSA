@@ -1,5 +1,4 @@
 // Insertion in Binary Search Tree
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -26,7 +25,6 @@ struct Node *createNode(int value){
 //   / \
 //  N   N (N = NULL)
 // root = 3, prev = 5 || root = 1, prev = 3 || root = NULL, prev = 1 (inserting 2)
-
 void insert(struct Node *root, int key){
     struct Node *prev = NULL;
     while(root != NULL){

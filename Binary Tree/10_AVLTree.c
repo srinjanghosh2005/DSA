@@ -1,5 +1,4 @@
 // Various rotations in AVL trees
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -44,7 +43,6 @@ int getBalanceFactor(struct Node *n){
 //     x   T3                      T1  y     
 //    / \      <-----------------     / \    
 //   T1 T2        Left Rotation      T2  T3
-
 struct Node *rightRotate(struct Node *y){
     struct Node *x = y->left;
     struct Node *T2 = x->right;
