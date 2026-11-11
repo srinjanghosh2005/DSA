@@ -48,6 +48,11 @@ struct Node *deleteEnd(struct Node *tail){
     return tail;
 }
 
+// case 3: Deletion at an index
+struct Node *deleteAtIndex(struct Node *head, int index){
+    
+}
+
 int main(){
     struct Node *head;
     struct Node *second;
