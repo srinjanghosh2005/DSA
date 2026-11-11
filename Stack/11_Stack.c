@@ -3,22 +3,22 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-// Structure to represent a single term of polnomial: coefficient * x ^ exponent
+// Structure to represent a single term of polnomial
 struct Node{
     int coeff;
-    int expo;
+    int exp;
     struct Node *next;
 };
 
 // Push a term onto the stack
-void push(struct Node *top, int coeff, int expo){
+void push(struct Node *top, int coeff, int exp){
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     if(newNode == NULL){
         printf("Memory allocation failed.\n");
         return;
     }
     newNode->coeff = coeff;
-    newNode->expo = expo;
+    newNode->exp = exp;
     newNode->next = top;
     top = newNode;
 }
@@ -31,7 +31,7 @@ void printPolynomial(struct Node *top){
     }
     struct Node *temp = top;
     while(temp != NULL){
-        printf("%dx^%d", temp->coeff, temp->expo);
+        printf("%dx^%d", temp->coeff, temp->exp);
         temp = temp->next;
         if(temp != NULL){
             if(temp->coeff >= 0){
@@ -45,52 +45,38 @@ void printPolynomial(struct Node *top){
     printf("\n");
 }
 
-// Reverse Stack helper
-void reverseStack(struct Node *top){
-    struct Node *prev = NULL;
-    struct Node *current = top;
-    struct Node *next = NULL;
-    while(current != NULL){
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
-    top = prev;
-}
-
 // Function to add two polnomials using stacks
 struct Node *addPolynomials(struct Node *p1, struct Node *p2){
     struct Node *result = NULL;
 
     while(p1 != NULL && p2 != NULL){
-        if(p1->expo == p2->expo){
+        if(p1->exp == p2->exp){
             int sum = p1->coeff + p2->coeff;
             if(sum != 0){
-                push(result, sum, p1->expo);
+                push(result, sum, p1->exp);
             }
             p1 = p1->next;
             p2 = p2->next;
         }
-        else if(p1->expo > p2->expo){
-            push(result, p1->coeff, p1->expo);
+        else if(p1->exp > p2->exp){
+            push(result, p1->coeff, p1->exp);
             p1 = p1->next;
         }
         else{
-            push(result, p2->coeff, p2->expo);
+            push(result, p2->coeff, p2->exp);
             p2 = p2->next;
         }
     }
 
     // Add remaining terms from p1
     while (p1 != NULL) {
-        push(result, p1->coeff, p1->expo);
+        push(result, p1->coeff, p1->exp);
         p1 = p1->next;
     }
 
     // Add remaining terms from p2
     while (p2 != NULL) {
-        push(result, p2->coeff, p2->expo);
+        push(result, p2->coeff, p2->exp);
         p2 = p2->next;
     }
     return result;
